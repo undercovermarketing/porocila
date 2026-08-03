@@ -73,9 +73,7 @@
     <div class="navi" id="nav-kampanje" onclick="go('kampanje')"><span class="ic">🎯</span> Učinkovitost kampanj in oglasov</div>
     <div class="navi" id="nav-targ" onclick="go('targ')"><span class="ic">👥</span> Učinkovitost targetiranja</div>
     <div class="navi" id="nav-lijak" onclick="go('lijak')"><span class="ic">🔻</span> Prikaz lijaka konverzij</div>
-    <div class="grp">Učinkovitost objav</div>
-    <div class="navi" id="nav-org" onclick="go('org')"><span class="ic">🚀</span> Glavni kazalniki družbenih omrežij</div>
-    <div class="navi" id="nav-objave" onclick="go('objave')"><span class="ic">🖼️</span> Učinkovitost objav</div>
+    
   </nav>
   <div class="main">
     <div class="topbar"></div>
@@ -121,14 +119,7 @@
         <div class="note">3.791 obiskov ciljne strani → 33 nakupov (~0,9 %). Priložnost: vrednost v pixlu (ROAS), retargeting, ponoven zagon READING NOVA.</div>
       </section>
 
-      <section class="page" id="page-org">
-        <div class="strip"><span>📌</span><div><b>Za ta zavihek potrebujem Business Suite posnetke za Junij 2026.</b> Organski doseg/ogledi/sledilci niso v oglasnem API-ju. Ko jih pošlješ, vstavim kazalnike in grafe (kot pri California).</div></div>
-        <div class="kpis" style="margin-top:14px;"><div class="kpi"><div class="l">Ogledi</div><div class="v">—</div><div class="s">čaka BS</div></div><div class="kpi"><div class="l">Doseg (organski)</div><div class="v">—</div><div class="s">čaka BS</div></div><div class="kpi"><div class="l">Obiski profila</div><div class="v">—</div><div class="s">čaka BS</div></div><div class="kpi"><div class="l">Novi sledilci</div><div class="v">—</div><div class="s">čaka BS</div></div></div>
-      </section>
-
-      <section class="page" id="page-objave">
-        <div class="strip"><span>🖼️</span><div>Najuspešnejše objave meseca dodam iz Business Suite posnetkov (doseg, interakcije). Zgradnik čaka na podatke.</div></div>
-      </section>
+      
     </div>
   </div>
 </div>
@@ -238,8 +229,8 @@ dualChart('chart-spend',  porabaPoDnevih, prikaziPoDnevih, pink, green, days, 'P
 */
 
 var MONTH='2026-06';
-var PAGES={cover:['Vstopna stran poročila','AURA VITA · FB + IG'],kpis:['Glavni kazalniki FB + IG oglaševanja','Mesečno · Junij 2026'],kampanje:['Učinkovitost kampanj in oglasov','Mesečno · Junij 2026'],targ:['Učinkovitost targetiranja','Mesečno · Junij 2026'],lijak:['Prikaz lijaka konverzij','Mesečno · Junij 2026'],org:['Glavni kazalniki družbenih omrežij','Junij 2026 (čaka Business Suite)'],objave:['Učinkovitost objav','Junij 2026 (čaka Business Suite)']};
-var NAVMAP={cover:'nav-cover',kpis:'nav-kpis',kampanje:'nav-kampanje',targ:'nav-targ',lijak:'nav-lijak',org:'nav-org',objave:'nav-objave'};
+var PAGES={cover:['Vstopna stran poročila','AURA VITA · FB + IG'],kpis:['Glavni kazalniki FB + IG oglaševanja','Mesečno · Junij 2026'],kampanje:['Učinkovitost kampanj in oglasov','Mesečno · Junij 2026'],targ:['Učinkovitost targetiranja','Mesečno · Junij 2026'],lijak:['Prikaz lijaka konverzij','Mesečno · Junij 2026']};
+var NAVMAP={cover:'nav-cover',kpis:'nav-kpis',kampanje:'nav-kampanje',targ:'nav-targ',lijak:'nav-lijak'};
 function go(id){Object.keys(PAGES).forEach(function(k){document.getElementById('page-'+k).classList.toggle('active',k===id);});document.querySelectorAll('.navi').forEach(function(n){n.classList.remove('active');});var nav=document.getElementById(NAVMAP[id]);if(nav)nav.classList.add('active');document.getElementById('ph-title').textContent=PAGES[id][0];document.getElementById('ph-sub').textContent=PAGES[id][1];if(editing){document.querySelectorAll('.page').forEach(function(p){p.contentEditable=true;});}window.scrollTo(0,0);}
 window.go=go;
 // obnovi shranjena urejanja (lokalno)
