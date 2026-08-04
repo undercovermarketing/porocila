@@ -264,6 +264,9 @@
   .chart-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px 10px;box-shadow:var(--shadow);margin-top:16px;}
   .chart-card .ttl{font-family:var(--font-title);font-size:15px;font-weight:700;}
   .chart-card svg{width:100%;height:200px;display:block;overflow:visible;}
+  .chart-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px;}
+  .chart-card.mini{margin-top:0;padding:12px 14px 8px;} .chart-card.mini .ttl{font-size:13px;} .chart-card.mini svg{height:130px;}
+  @media (max-width:720px){.chart-grid{grid-template-columns:1fr;}}
   .legend{display:flex;gap:14px;margin:6px 0 4px;} .legend-item{display:flex;align-items:center;gap:5px;font-family:var(--font-label);font-size:10.5px;color:var(--text-muted);font-weight:700;} .legend-dot{width:16px;height:2px;border-radius:1px;}
   .axis-label{font-family:var(--font-label);font-size:9.5px;fill:var(--text-muted);font-weight:600;} .axis-title{font-family:var(--font-label);font-size:9.5px;fill:var(--text-muted);font-weight:700;}
   .adshow{display:grid;grid-template-columns:200px 1fr;gap:18px;margin-top:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow);align-items:center;}
@@ -301,7 +304,6 @@
   <div class="tab-switcher">
     <button class="tab-btn active" id="tabbtn-pregled" onclick="switchTab('pregled')">📊 Pregled + oglasi</button>
     <button class="tab-btn" id="tabbtn-org" onclick="switchTab('org')">📣 Družbena omrežja</button>
-    <button class="tab-btn" id="tabbtn-naprej" onclick="switchTab('naprej')">🚀 Kaj naprej (priporočila)</button>
   </div>
 
   <div id="tab-pregled">
@@ -425,44 +427,22 @@
       <div class="growth-card"><div class="gc-label">KLIKI POVEZAVE (ORGANSKO)</div><div class="gc-value">6,6 tis.</div><div class="gc-sub">oglasi: 5.801 odhodnih</div></div>
     </div>
 
+    <div class="section-title">Dnevni potek organskih kazalnikov</div>
+    <div class="chart-grid">
+      <div class="chart-card mini"><div class="ttl">Ogledi (Views) · 243,7 tis.</div><svg id="oc-views"></svg></div>
+      <div class="chart-card mini"><div class="ttl">Gledalci · 102,2 tis.</div><svg id="oc-viewers"></svg></div>
+      <div class="chart-card mini"><div class="ttl">Interakcije z vsebino · 279</div><svg id="oc-inter"></svg></div>
+      <div class="chart-card mini"><div class="ttl">Kliki povezave · 6,6 tis.</div><svg id="oc-clicks"></svg></div>
+      <div class="chart-card mini"><div class="ttl">Obiski profila · 2,8 tis.</div><svg id="oc-visits"></svg></div>
+      <div class="chart-card mini"><div class="ttl">Novi sledilci · +248</div><svg id="oc-fol"></svg></div>
+    </div>
+
     <div class="warn" style="background:linear-gradient(100deg,#3f8f52,#2f6b3e);">
       <h4>✓ Kaj to pomeni</h4>
-      <p>Organska vsebina in oglasi skupaj tvorita <b>~13 tis. dejanskih klikov na povezavo</b> v obdobju (6,6 tis. organsko + 5,8 tis. odhodnih iz oglasov). To je zdrava kombinacija: plačan doseg pospeši zagon, organska vsebina pa gradi zaupanje in sledilce brez dodatnega stroška. Priporočilo: najuspešnejše organske objave (največ ogledov in klikov) dodatno podpremo z oglasi in retargetingom.</p>
+      <p>Organska vsebina in oglasi skupaj tvorita <b>~13 tis. dejanskih klikov na povezavo</b> v obdobju (6,6 tis. organsko + 5,8 tis. odhodnih iz oglasov). To je zdrava kombinacija: plačan doseg pospeši zagon, organska vsebina pa gradi zaupanje in sledilce brez dodatnega stroška. Padec sredi julija (12.–13.) je viden pri vseh kazalnikih — takrat je bila vsebina/oglasi na kratki pavzi.</p>
     </div>
 
-    <div class="table-foot-note" style="margin-top:12px;">Vir: Meta Business Suite (Vpogledi → Rezultati), samo <b>Facebook</b> — Instagram profil ni povezan v Business Suite, zato IG organskih podatkov ni. Prikazani so agregatni kazalniki obdobja; posamične objave niso zajete.</div>
-  </div>
-
-  <div id="tab-naprej" style="display:none;">
-    <div class="divider-bar top">Kaj naprej: iz poceni prometa v merljivo prodajo</div>
-    <div class="insight">
-      <div class="ic">🚀</div>
-      <div>
-        <h4>Zagon je odličen. Zdaj dodamo merjenje in prodajne kampanje.</h4>
-        <p>Promet je poceni in v velikem obsegu (4.593 obiskov po 0,07 €). Ker je 3 FAZE spletna trgovina, je naslednji korak, da <b>vidimo, kaj se po obisku zgodi</b> (nakup, košarica) in oglaševanje usmerimo v prodajo, ne le promet. Ob tem podvojimo tisto, kar že deluje: video in aspiracijski kot.</p>
-      </div>
-    </div>
-
-    <div class="section-title">Kaj je delovalo (nadaljujemo) in kje je priložnost</div>
-    <div class="gap-grid">
-      <div class="gap-card"><div class="x">✓ deluje</div><h4>Video + aspiracijski kot</h4><p>Video »Kje ste pa to kupili« nosi pol prometa pri CTR 4,69 %. Aspiracija in socialni dokaz zmagujeta. Naredimo več videov v tem slogu (različni prostori, »kje ste to kupili«, odzivi strank v videu).</p></div>
-      <div class="gap-card miss"><div class="x">✕ priložnost</div><h4>Ne merimo nakupov</h4><p>Vidimo obiske strani, ne pa nakupov. Za e-trgovino je to ključno: brez pixla ne vemo, kateri oglas prinese prodajo, in Meta ne more optimizirati za kupce.</p></div>
-      <div class="gap-card miss"><div class="x">✕ priložnost</div><h4>Topla publika se ne izkorišča</h4><p>107.446 doseženih in 4.593 obiskovalcev strani je idealna publika za retargeting, ki je zaenkrat ne nagovarjamo posebej s ponudbo.</p></div>
-    </div>
-
-    <div class="section-title">Priporočila za avgust — po vrsti</div>
-    <div class="planlist">
-      <div class="planitem"><div class="pn">1</div><div class="pt"><b>Namestimo Meta pixel + merjenje nakupov <span class="badge now">najprej</span></b><p>Dogodki »ogled izdelka«, »dodano v košarico«, »nakup« z vrednostjo. Šele tako vidimo pravo pot obisk → nakup in kateri oglasi prinesejo prodajo, ne le klike.</p></div></div>
-      <div class="planitem"><div class="pn">2</div><div class="pt"><b>Več aspiracijskih in produktnih videov <span class="badge key">zmagovalni format</span></b><p>Podvojimo zmagovalca: video z aspiracijskim kotom (»kje ste pa to kupili«, prostori v domu, odzivi strank). Testimonial preselimo iz carousela v video.</p></div></div>
-      <div class="planitem"><div class="pn">3</div><div class="pt"><b>Retargeting 1 €/dan na obiskovalce strani <span class="badge next">topla publika</span></b><p>Na 4.593 obiskovalcev in doseženo publiko z jasno ponudbo (model, cena, »po meri«, akcija). Najcenejša pot do prvega nakupa.</p></div></div>
-      <div class="planitem"><div class="pn">4</div><div class="pt"><b>Prodajna kampanja s katalogom izdelkov <span class="badge next">e-trgovina</span></b><p>Ko pixel meri nakupe, dodamo katalog LED ogledal in prodajno kampanjo (in dynamic ads), da Meta prikazuje prave modele pravim ljudem in optimizira za nakup.</p></div></div>
-      <div class="planitem"><div class="pn">5</div><div class="pt"><b>Osvežimo šibkejše oglase <span class="badge next">optimizacija</span></b><p>Testimonial carousel (CTR 2,46 %) in foto Topaz sta pod povprečjem. Zamenjamo z video variantami, ki že dokazano delujejo.</p></div></div>
-    </div>
-
-    <div class="info-strip" style="margin-top:16px;">
-      <span>💬</span>
-      <div><strong>Prvi mesec je uspeh:</strong> poceni promet v velikem obsegu (4.593 obiskov po 0,07 €, CPC 0,04 € proti panožnim ~0,25 €). Za naslednji korak potrebujemo <b>merjenje nakupov (pixel)</b> in <b>prodajno kampanjo</b>, da promet spremenimo v merljivo prodajo. Video in aspiracijski kot medtem širimo, ker očitno delujeta.</div>
-    </div>
+    <div class="table-foot-note" style="margin-top:12px;">Vir: Meta Business Suite (Vpogledi → Rezultati), samo <b>Facebook</b> — Instagram profil ni povezan v Business Suite, zato IG organskih podatkov ni. Agregatne vrednosti so točne iz Business Suite; dnevne krivulje ponazarjajo obliko grafov iz Business Suite (natančne dnevne vrednosti niso izvožene).</div>
   </div>
 
   <footer class="page-foot">
@@ -576,15 +556,59 @@ dualChart('chart-spend',  porabaPoDnevih, prikaziPoDnevih, pink, green, days, 'P
 */
 
 function switchTab(name){
-  ['pregled','org','naprej'].forEach(function(t){
+  ['pregled','org'].forEach(function(t){
     document.getElementById('tab-'+t).style.display=(name===t)?'':'none';
     document.getElementById('tabbtn-'+t).classList.toggle('active',name===t);
   });
   window.scrollTo(0,0);
 }
 window.switchTab=switchTab;
+
+/* enolinijski graf v slogu Business Suite */
+function singleChart(id, vals, labs, color){
+  var svg=document.getElementById(id); if(!svg)return;
+  var W=520,H=130,pL=38,pR=10,pT=12,pB=22, iw=W-pL-pR, ih=H-pT-pB;
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var max=Math.max.apply(null,vals), min=0;
+  var tick=niceNum(max,true); var top=Math.ceil(max/tick)*tick; if(top<=0)top=tick;
+  function x(i){return pL + (vals.length<2?iw/2:iw*i/(vals.length-1));}
+  function y(v){return pT + ih - ih*(v/top);}
+  var g='';
+  for(var t=0;t<=top+0.0001;t+=top/2){
+    var yy=y(t);
+    g+='<line x1="'+pL+'" y1="'+yy.toFixed(1)+'" x2="'+(W-pR)+'" y2="'+yy.toFixed(1)+'" stroke="'+cv('--border')+'" stroke-width="1"/>';
+    g+='<text class="axis-label" x="'+(pL-6)+'" y="'+(yy+3).toFixed(1)+'" text-anchor="end">'+groupThousands(String(Math.round(t)))+'</text>';
+  }
+  var d='',ar='';
+  vals.forEach(function(v,i){ d+=(i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)+' '; });
+  ar='M'+x(0).toFixed(1)+' '+y(0).toFixed(1)+' '+d.replace(/^M/,'L')+'L'+x(vals.length-1).toFixed(1)+' '+y(0).toFixed(1)+' Z';
+  var xl='';
+  labs.forEach(function(l,i){ if(l){ xl+='<text class="axis-label" x="'+x(i).toFixed(1)+'" y="'+(H-6)+'" text-anchor="middle">'+l+'</text>'; } });
+  svg.innerHTML=g+'<path d="'+ar+'" fill="'+color+'22"/>'+'<path d="'+d+'" fill="none" stroke="'+color+'" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>'+xl;
+}
+
 var days=["7.7","8.7","9.7","10.7","11.7","14.7","15.7","16.7","17.7","18.7","19.7","20.7","21.7","22.7","23.7","24.7","25.7","26.7","27.7","28.7","29.7","30.7","31.7"];
 var ob=[118,178,150,206,59,208,257,337,398,436,353,266,259,238,313,304,272,296,222,209,273,220,229];
 var sp=[18.53,12.75,10.78,13.41,4.53,21.32,16.45,21.65,25.57,25.7,18.14,15.24,15.62,14.04,15.94,16.11,16.91,18.77,14.47,14.2,18.05,14.08,16.19];
 try{ dualChart('chart-trend', ob, sp, '#e79bb2', '#6fbf73', days, 'Odhodni kliki', 'Poraba (€)', false); }catch(e){}
+
+/* organske dnevne serije (7.7.–3.8.) — oblika po grafih iz Business Suite */
+var oDays=['7.7','','','','','12.7','','','','','17.7','','','','','22.7','','','','','27.7','','','','1.8','','',''];
+var oColor='#5bb3e0';
+var org={
+ views:[10,8,9,7,5,0.5,4,11,10,14,13,10,11,12,10,9,10,11,10,9,10,11,10,10,9,10,9,8],
+ viewers:[8,7,7,5,4,0.4,3,9,8,10,10,8,9,9,8,7,8,9,8,7,8,8,8,8,7,8,7,6],
+ inter:[10,8,21,7,10,0,6,12,17,20,16,13,14,12,10,11,10,12,11,9,10,11,10,8,9,7,5,2],
+ clicks:[180,150,200,120,150,20,60,300,280,430,410,300,320,290,270,250,280,300,280,250,260,270,260,250,240,300,350,220],
+ visits:[130,110,120,90,110,20,60,150,140,200,420,180,160,150,140,130,150,160,150,140,130,120,110,120,130,140,150,90],
+ fol:[16,12,14,10,13,1,4,15,14,20,35,15,14,12,10,9,10,11,10,9,8,9,8,7,6,8,9,3]
+};
+try{
+ singleChart('oc-views',org.views,oDays,oColor);
+ singleChart('oc-viewers',org.viewers,oDays,oColor);
+ singleChart('oc-inter',org.inter,oDays,oColor);
+ singleChart('oc-clicks',org.clicks,oDays,oColor);
+ singleChart('oc-visits',org.visits,oDays,oColor);
+ singleChart('oc-fol',org.fol,oDays,oColor);
+}catch(e){}
 </script>
