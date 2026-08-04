@@ -300,6 +300,7 @@
 
   <div class="tab-switcher">
     <button class="tab-btn active" id="tabbtn-pregled" onclick="switchTab('pregled')">📊 Pregled + oglasi</button>
+    <button class="tab-btn" id="tabbtn-org" onclick="switchTab('org')">📣 Družbena omrežja</button>
     <button class="tab-btn" id="tabbtn-naprej" onclick="switchTab('naprej')">🚀 Kaj naprej (priporočila)</button>
   </div>
 
@@ -396,6 +397,40 @@
       <div class="table-foot-note">Vzorec zmagovalcev: <b>video prekaša foto in carousel</b>. Najboljša sta aspiracijski in produktni video (CTR 4,69 % in 3,58 %, CPC 0,03 €). Testimonial carousel je najšibkejši (CTR 2,46 %) — osvežimo ga v video obliki.</div>
       </div>
     </div>
+  </div>
+
+  <div id="tab-org" style="display:none;">
+    <div class="divider-bar top">Družbena omrežja (organsko) · Facebook · zadnjih 28 dni (7. jul.–3. avg. 2026)</div>
+    <div class="insight">
+      <div class="ic">📣</div>
+      <div>
+        <h4>Organska rast gre z roko v roki z oglasi</h4>
+        <p>V istem obdobju je organska Facebook vsebina dosegla <b>243,7 tis. ogledov</b> in prinesla <b>6,6 tis. klikov na povezavo</b> — to je celo <b>več kot oglasi</b> (5.801 odhodnih klikov). Oglasi in organsko se odlično dopolnjujejo: oglasi gradijo doseg in obiske, organska vsebina pa dodatno goni promet in nove sledilce (<b>+248</b>). Odstotki rasti so zelo visoki, ker je bil profil pred tem obdobjem tik pred zagonom (nizka izhodiščna osnova).</p>
+      </div>
+    </div>
+
+    <div class="row-with-icon" style="margin-top:14px;">
+      <div class="icon-card"><div style="font-size:22px;">📘</div><div class="lbl">Facebook<br>28 dni</div></div>
+      <div class="kpi-row">
+        <div class="kpi-card"><div class="kpi-label">Ogledi (Views)</div><div class="kpi-value">243,7 tis.</div><div class="kpi-trend up">močna rast</div></div>
+        <div class="kpi-card"><div class="kpi-label">Gledalci</div><div class="kpi-value">102,2 tis.</div><div class="kpi-trend up">edinstveni</div></div>
+        <div class="kpi-card"><div class="kpi-label">Kliki povezave</div><div class="kpi-value">6,6 tis.</div><div class="kpi-trend up">več kot oglasi</div></div>
+        <div class="kpi-card"><div class="kpi-label">Novi sledilci</div><div class="kpi-value">+248</div><div class="kpi-trend up">28 dni</div></div>
+      </div>
+    </div>
+
+    <div class="growth-banner">
+      <div class="growth-card"><div class="gc-label">INTERAKCIJE Z VSEBINO</div><div class="gc-value">279</div><div class="gc-sub">všečki, komentarji, deljenja</div></div>
+      <div class="growth-card"><div class="gc-label">OBISKI PROFILA</div><div class="gc-value">2,8 tis.</div><div class="gc-sub">ljudje na FB strani</div></div>
+      <div class="growth-card"><div class="gc-label">KLIKI POVEZAVE (ORGANSKO)</div><div class="gc-value">6,6 tis.</div><div class="gc-sub">oglasi: 5.801 odhodnih</div></div>
+    </div>
+
+    <div class="warn" style="background:linear-gradient(100deg,#3f8f52,#2f6b3e);">
+      <h4>✓ Kaj to pomeni</h4>
+      <p>Organska vsebina in oglasi skupaj tvorita <b>~13 tis. dejanskih klikov na povezavo</b> v obdobju (6,6 tis. organsko + 5,8 tis. odhodnih iz oglasov). To je zdrava kombinacija: plačan doseg pospeši zagon, organska vsebina pa gradi zaupanje in sledilce brez dodatnega stroška. Priporočilo: najuspešnejše organske objave (največ ogledov in klikov) dodatno podpremo z oglasi in retargetingom.</p>
+    </div>
+
+    <div class="table-foot-note" style="margin-top:12px;">Vir: Meta Business Suite (Vpogledi → Rezultati), samo <b>Facebook</b> — Instagram profil ni povezan v Business Suite, zato IG organskih podatkov ni. Prikazani so agregatni kazalniki obdobja; posamične objave niso zajete.</div>
   </div>
 
   <div id="tab-naprej" style="display:none;">
@@ -541,10 +576,10 @@ dualChart('chart-spend',  porabaPoDnevih, prikaziPoDnevih, pink, green, days, 'P
 */
 
 function switchTab(name){
-  document.getElementById('tab-pregled').style.display=(name==='pregled')?'':'none';
-  document.getElementById('tab-naprej').style.display=(name==='naprej')?'':'none';
-  document.getElementById('tabbtn-pregled').classList.toggle('active',name==='pregled');
-  document.getElementById('tabbtn-naprej').classList.toggle('active',name==='naprej');
+  ['pregled','org','naprej'].forEach(function(t){
+    document.getElementById('tab-'+t).style.display=(name===t)?'':'none';
+    document.getElementById('tabbtn-'+t).classList.toggle('active',name===t);
+  });
   window.scrollTo(0,0);
 }
 window.switchTab=switchTab;
