@@ -276,7 +276,13 @@
   .planitem .pt{flex:1;min-width:0;} .planitem .pt b{font-family:var(--font-label);font-size:13.5px;} .planitem .pt p{margin:3px 0 0;font-size:12.5px;color:var(--text-muted);line-height:1.5;}
   .planitem .badge{font-family:var(--font-label);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:3px 8px;border-radius:999px;white-space:nowrap;}
   .badge.now{background:#fbe9ee;color:#b3261e;} .badge.key{background:#fde7cf;color:#b7791f;} .badge.next{background:var(--green-soft);color:var(--green);}
+  .chart-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px;}
+  .chart-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px 8px;box-shadow:var(--shadow);}
+  .chart-card .ttl{font-family:var(--font-title);font-size:13px;font-weight:700;}
+  .chart-card svg{width:100%;height:130px;display:block;overflow:visible;}
+  .axis-label{font-family:var(--font-label);font-size:9.5px;fill:var(--text-muted);font-weight:600;}
   @media (max-width:920px){.gap-grid,.budget-card{grid-template-columns:1fr;}.fstep{grid-template-columns:130px 1fr 120px;}}
+  @media (max-width:720px){.chart-grid{grid-template-columns:1fr;}}
 </style>
 
 <div class="wrap">
@@ -293,6 +299,7 @@
 
   <div class="tab-switcher">
     <button class="tab-btn active" id="tabbtn-pregled" onclick="switchTab('pregled')">📊 Pregled + oglasi</button>
+    <button class="tab-btn" id="tabbtn-org" onclick="switchTab('org')">📣 Družbena omrežja</button>
     <button class="tab-btn" id="tabbtn-naprej" onclick="switchTab('naprej')">🔧 Zakaj ni naročil + ukrepi</button>
   </div>
 
@@ -374,6 +381,50 @@
     </div>
   </div>
 
+  <div id="tab-org" style="display:none;">
+    <div class="divider-bar top">Družbena omrežja (organsko) · Facebook · zadnjih 28 dni (8. jul.–4. avg. 2026)</div>
+    <div class="insight">
+      <div class="ic">🚀</div>
+      <div>
+        <h4>Ogromna rast dosega: gradimo bazo ljudi, ki jih bomo spremenili v kupce</h4>
+        <p>Smo šele na začetku oglaševanja in točno to je pričakovano in dobro: najprej <b>dosežemo ogromno novih ljudi</b>, jih ogrejemo, nato se začnejo povpraševanja. Organski Facebook je v 28 dneh zrasel <b>izjemno</b>: ogledi <b>+175,2 %</b> (130,9 tis.), gledalci <b>+103,1 %</b> (65,8 tis.), interakcije <b>+103,3 %</b>, kliki na povezavo <b>+84,8 %</b> (2,4 tis.). Skupaj z oglasi smo dosegli veliko novo publiko, ki je zdaj topla, prav ona je surovina za naslednji korak (retargeting in prve prodaje).</p>
+      </div>
+    </div>
+
+    <div class="growth-banner">
+      <div class="growth-card"><div class="gc-label">RAST OGLEDOV</div><div class="gc-value">+175,2 %</div><div class="gc-sub">130,9 tis. ogledov</div></div>
+      <div class="growth-card"><div class="gc-label">RAST GLEDALCEV</div><div class="gc-value">+103,1 %</div><div class="gc-sub">65,8 tis. ljudi</div></div>
+      <div class="growth-card"><div class="gc-label">RAST KLIKOV POVEZAVE</div><div class="gc-value">+84,8 %</div><div class="gc-sub">2,4 tis. klikov</div></div>
+    </div>
+
+    <div class="row-with-icon" style="margin-top:14px;">
+      <div class="icon-card"><div style="font-size:22px;">📘</div><div class="lbl">Facebook<br>28 dni</div></div>
+      <div class="kpi-row">
+        <div class="kpi-card"><div class="kpi-label">Ogledi (Views)</div><div class="kpi-value">130,9 tis.</div><div class="kpi-trend up">+175,2 %</div></div>
+        <div class="kpi-card"><div class="kpi-label">Gledalci</div><div class="kpi-value">65,8 tis.</div><div class="kpi-trend up">+103,1 %</div></div>
+        <div class="kpi-card"><div class="kpi-label">Kliki povezave</div><div class="kpi-value">2,4 tis.</div><div class="kpi-trend up">+84,8 %</div></div>
+        <div class="kpi-card"><div class="kpi-label">Obiski profila</div><div class="kpi-value">1,1 tis.</div><div class="kpi-trend up">+38,7 %</div></div>
+      </div>
+    </div>
+
+    <div class="section-title">Dnevni potek organskih kazalnikov</div>
+    <div class="chart-grid">
+      <div class="chart-card"><div class="ttl">Ogledi (Views) · 130,9 tis. (+175,2 %)</div><svg id="oc-views"></svg></div>
+      <div class="chart-card"><div class="ttl">Gledalci · 65,8 tis. (+103,1 %)</div><svg id="oc-viewers"></svg></div>
+      <div class="chart-card"><div class="ttl">Interakcije z vsebino · 431 (+103,3 %)</div><svg id="oc-inter"></svg></div>
+      <div class="chart-card"><div class="ttl">Kliki povezave · 2,4 tis. (+84,8 %)</div><svg id="oc-clicks"></svg></div>
+      <div class="chart-card"><div class="ttl">Obiski profila · 1,1 tis. (+38,7 %)</div><svg id="oc-visits"></svg></div>
+      <div class="chart-card"><div class="ttl">Novi sledilci · 46</div><svg id="oc-fol"></svg></div>
+    </div>
+
+    <div class="warn" style="background:linear-gradient(100deg,#3f8f52,#2f6b3e);">
+      <h4>✓ Zakaj je to pomembno</h4>
+      <p>Ta rast pomeni, da smo v prvi fazi (doseg in ogrevanje) uspešni: v enem mesecu je BC Wood videlo <b>več kot 130.000 ogledov</b> in <b>65.800 ljudi</b>. To je publika, ki nas zdaj pozna. Naslednji korak (pixel + retargeting) je ravno tisti, ki to toplo publiko spremeni v povpraševanja in nakupe. Organsko in oglasi delata z roko v roki.</p>
+    </div>
+
+    <div class="table-foot-note" style="margin-top:12px;">Vir: Meta Business Suite (Vpogledi → Rezultati), samo <b>Facebook</b>. Odstotki so primerjava s prejšnjim 28-dnevnim obdobjem. Agregatne vrednosti so točne iz Business Suite; dnevne krivulje ponazarjajo obliko grafov iz Business Suite (natančne dnevne vrednosti niso izvožene).</div>
+  </div>
+
   <div id="tab-naprej" style="display:none;">
     <div class="divider-bar top">Zakaj (še) ni naročil in kaj naredimo</div>
     <div class="insight">
@@ -414,11 +465,55 @@
 
 <script>
 function switchTab(name){
-  document.getElementById('tab-pregled').style.display=(name==='pregled')?'':'none';
-  document.getElementById('tab-naprej').style.display=(name==='naprej')?'':'none';
-  document.getElementById('tabbtn-pregled').classList.toggle('active',name==='pregled');
-  document.getElementById('tabbtn-naprej').classList.toggle('active',name==='naprej');
+  ['pregled','org','naprej'].forEach(function(t){
+    document.getElementById('tab-'+t).style.display=(name===t)?'':'none';
+    document.getElementById('tabbtn-'+t).classList.toggle('active',name===t);
+  });
   window.scrollTo(0,0);
 }
 window.switchTab=switchTab;
+
+var C=getComputedStyle(document.documentElement);
+function cv(n){return C.getPropertyValue(n).trim();}
+function groupThousands(s){return s.replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
+function niceNum(range){if(range<=0)range=1;var e=Math.floor(Math.log(range)/Math.LN10);var f=range/Math.pow(10,e),nf;if(f<1.5)nf=1;else if(f<3)nf=2;else if(f<7)nf=5;else nf=10;return nf*Math.pow(10,e);}
+function singleChart(id, vals, labs, color){
+  var svg=document.getElementById(id); if(!svg)return;
+  var W=520,H=130,pL=38,pR=10,pT=12,pB=22, iw=W-pL-pR, ih=H-pT-pB;
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var max=Math.max.apply(null,vals);
+  var tick=niceNum(max); var top=Math.ceil(max/tick)*tick; if(top<=0)top=tick;
+  function x(i){return pL + (vals.length<2?iw/2:iw*i/(vals.length-1));}
+  function y(v){return pT + ih - ih*(v/top);}
+  var g='';
+  for(var t=0;t<=top+0.0001;t+=top/2){
+    var yy=y(t);
+    g+='<line x1="'+pL+'" y1="'+yy.toFixed(1)+'" x2="'+(W-pR)+'" y2="'+yy.toFixed(1)+'" stroke="'+cv('--border')+'" stroke-width="1"/>';
+    g+='<text class="axis-label" x="'+(pL-6)+'" y="'+(yy+3).toFixed(1)+'" text-anchor="end">'+groupThousands(String(Math.round(t)))+'</text>';
+  }
+  var d='';
+  vals.forEach(function(v,i){ d+=(i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)+' '; });
+  var ar='M'+x(0).toFixed(1)+' '+y(0).toFixed(1)+' '+d.replace(/^M/,'L')+'L'+x(vals.length-1).toFixed(1)+' '+y(0).toFixed(1)+' Z';
+  var xl='';
+  labs.forEach(function(l,i){ if(l){ xl+='<text class="axis-label" x="'+x(i).toFixed(1)+'" y="'+(H-6)+'" text-anchor="middle">'+l+'</text>'; } });
+  svg.innerHTML=g+'<path d="'+ar+'" fill="'+color+'22"/>'+'<path d="'+d+'" fill="none" stroke="'+color+'" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>'+xl;
+}
+var oDays=['8.7','','','','','13.7','','','','','18.7','','','','','23.7','','','','','28.7','','','','','2.8','',''];
+var oColor='#5bb3e0';
+var org={
+ views:[6.5,5.8,5.2,4.8,4.5,5.0,4.6,4.4,4.8,6.0,4.7,4.3,4.5,3.2,3.0,4.0,3.8,4.2,4.0,3.8,4.2,4.4,4.0,4.2,4.5,6.3,4.8,5.0],
+ viewers:[6.0,4.5,4.2,3.9,4.0,4.6,4.0,3.8,4.0,4.5,4.0,3.8,3.9,3.0,2.9,3.6,3.5,3.8,3.6,3.4,3.7,3.8,3.6,3.7,3.9,5.0,4.0,3.9],
+ inter:[26,22,20,24,29,20,14,22,20,19,18,14,12,11,3,8,10,9,14,10,11,10,11,10,12,33,18,10],
+ clicks:[160,90,85,80,95,90,75,88,100,128,95,90,80,50,60,90,88,95,80,70,75,80,72,70,75,90,80,72],
+ visits:[63,55,45,52,58,48,35,55,71,60,71,45,40,30,15,26,53,30,25,28,30,35,40,42,38,40,25,35],
+ fol:[4,2,0,4,1,3,2,1,3,5,2,2,1,1,0,1,2,1,2,1,2,3,1,1,2,1,0,1]
+};
+try{
+ singleChart('oc-views',org.views,oDays,oColor);
+ singleChart('oc-viewers',org.viewers,oDays,oColor);
+ singleChart('oc-inter',org.inter,oDays,oColor);
+ singleChart('oc-clicks',org.clicks,oDays,oColor);
+ singleChart('oc-visits',org.visits,oDays,oColor);
+ singleChart('oc-fol',org.fol,oDays,oColor);
+}catch(e){}
 </script>
