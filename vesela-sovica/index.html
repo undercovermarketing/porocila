@@ -1,0 +1,275 @@
+<meta charset="utf-8">
+<title>Vesela Sovica — analiza in strategija pred zagonom oglaševanja</title>
+<style>
+  :root{
+    --ink:#241f1c; --muted:#6c645c; --line:#e4ddd2; --paper:#ffffff; --soft:#f6f3ee;
+    --red:#c31c3e; --magenta:#7c1f5e; --green:#3f8f52; --green-soft:#eaf5ec; --red-soft:#fbe9ee; --amber:#b7791f;
+    --sans:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--ink:#ece5db;--muted:#a89e91;--line:#3a342c;--paper:#201c18;--soft:#282320;--green-soft:#1e3325;--red-soft:#3a2029;}
+    body{background:#141110;}
+  }
+  :root[data-theme="dark"]{--ink:#ece5db;--muted:#a89e91;--line:#3a342c;--paper:#201c18;--soft:#282320;--green-soft:#1e3325;--red-soft:#3a2029;}
+  :root[data-theme="dark"] body{background:#141110;}
+  :root[data-theme="light"]{--ink:#241f1c;--muted:#6c645c;--line:#e4ddd2;--paper:#fff;--soft:#f6f3ee;--green-soft:#eaf5ec;--red-soft:#fbe9ee;}
+  :root[data-theme="light"] body{background:#efece6;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:#efece6;font-family:var(--sans);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;}
+  .page{max-width:880px;margin:0 auto;background:var(--paper);padding:54px 62px 60px;box-shadow:0 1px 4px rgba(0,0,0,.08);}
+  .brandbar{height:6px;border-radius:4px;background:linear-gradient(90deg,var(--red),var(--magenta));margin-bottom:26px;}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);}
+  h1{font-family:Georgia,serif;font-size:33px;line-height:1.15;margin:6px 0 6px;}
+  .subtitle{color:var(--muted);font-size:14.5px;margin-bottom:6px;}
+  .meta{font-size:12.5px;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:8px;}
+  .toc{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px 20px;margin:18px 0 6px;font-size:13px;column-count:2;column-gap:28px;}
+  .toc a{color:var(--ink);text-decoration:none;display:block;padding:2px 0;}
+  .toc a b{color:var(--red);}
+  .parttag{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#fff;background:linear-gradient(90deg,var(--red),var(--magenta));display:inline-block;padding:5px 14px;border-radius:999px;margin:30px 0 4px;}
+  h2{font-family:Georgia,serif;font-size:21px;margin:20px 0 6px;padding-top:20px;border-top:2px solid var(--line);}
+  h2 .no{color:var(--red);font-size:16px;margin-right:8px;}
+  h3{font-family:Georgia,serif;font-size:16px;margin:18px 0 4px;}
+  p{margin:8px 0;font-size:14.5px;}
+  ul,ol{margin:8px 0;padding-left:22px;} li{margin:5px 0;font-size:14.5px;}
+  b,strong{color:var(--ink);}
+  .lead{font-size:15.5px;}
+  .callout{background:var(--soft);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0;}
+  .callout.win{border-left-color:var(--green);background:var(--green-soft);}
+  .callout .t{font-weight:700;font-size:13.5px;margin-bottom:3px;}
+  .offer{background:linear-gradient(100deg,var(--red),var(--magenta));color:#fff;border-radius:12px;padding:18px 22px;margin:14px 0;}
+  .offer .tag{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.9;}
+  .offer h3{font-family:Georgia,serif;color:#fff;margin:6px 0 6px;font-size:19px;}
+  .offer p{margin:0;font-size:14px;opacity:.96;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;}
+  th{background:linear-gradient(90deg,var(--red),var(--magenta));color:#fff;text-align:left;padding:8px 10px;font-size:11.5px;text-transform:uppercase;letter-spacing:.02em;}
+  td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tfoot td{font-weight:700;border-top:2px solid var(--red);background:var(--soft);}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}
+  .pill{background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:8px 12px;font-size:12px;}
+  .pill b{display:block;font-size:15px;font-family:Georgia,serif;}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .swot{border:1px solid var(--line);border-radius:10px;padding:12px 16px;}
+  .swot.pos{border-top:4px solid var(--green);} .swot.neg{border-top:4px solid var(--red);}
+  .swot h3{margin:0 0 6px;} .swot ul{margin:0;padding-left:18px;} .swot li{font-size:13px;}
+  .funnel{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:12px 0;}
+  .fstage{display:flex;gap:14px;padding:13px 16px;border-top:1px solid var(--line);}
+  .fstage:first-child{border-top:none;}
+  .fstage .fl{width:135px;flex-shrink:0;font-family:Georgia,serif;font-weight:700;font-size:14px;color:var(--red);}
+  .fstage p{margin:0;font-size:13.5px;}
+  .kot{border:1px solid var(--line);border-left:4px solid var(--red);border-radius:10px;padding:12px 16px;margin:10px 0;}
+  .kot b{font-size:14px;}
+  .kot .ex{background:var(--soft);border-radius:8px;padding:8px 12px;font-size:13px;font-style:italic;margin-top:6px;}
+  .step{display:flex;gap:12px;margin:9px 0;align-items:flex-start;}
+  .step .n{width:26px;height:26px;flex-shrink:0;border-radius:8px;background:linear-gradient(135deg,var(--red),var(--magenta));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;}
+  .step .c b{font-size:14px;} .step .c p{margin:2px 0 0;font-size:13px;color:var(--muted);}
+  .foot{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  @media print{body{background:#fff;}.page{box-shadow:none;max-width:none;padding:0;}h2{break-after:avoid;}.kot,.offer,.callout,table,.funnel,.swot{break-inside:avoid;}}
+  @media (max-width:640px){.page{padding:30px 20px;}h1{font-size:26px;}.toc,.two{column-count:1;grid-template-columns:1fr;}.fstage{flex-direction:column;gap:4px;}.fstage .fl{width:auto;}}
+</style>
+
+<div class="page">
+  <div class="brandbar"></div>
+  <div class="eyebrow">Undercover Marketing Media · Vzpostavitev oglaševanja</div>
+  <h1>Vesela Sovica — analiza in strategija pred zagonom</h1>
+  <div class="subtitle">Spletna trgovina za dojenčke in malčke (spalne vreče z nogicami, posteljnina, nega, hranjenje) · trga SLO + HR</div>
+  <div class="meta">Stranka: Lara, LL-LL d.o.o. &nbsp;·&nbsp; veselasovica.si / veselasovica.hr &nbsp;·&nbsp; Podlaga: izpolnjen vprašalnik (2. jun. 2026) + pregled spletne strani &nbsp;·&nbsp; Pripravljeno: 12. avgust 2026</div>
+
+  <div class="toc">
+    <a href="#s1"><b>1.</b> Povzetek in ključna priložnost</a>
+    <a href="#s2"><b>2.</b> Podjetje in digitalna prisotnost</a>
+    <a href="#s3"><b>3.</b> Produkti, cene in ponudba</a>
+    <a href="#s4"><b>4.</b> Konkurenca in pozicioniranje</a>
+    <a href="#s5"><b>5.</b> Ciljna publika</a>
+    <a href="#s6"><b>6.</b> Analiza ponudbe in spletne strani</a>
+    <a href="#s7"><b>7.</b> Prednosti in slabosti</a>
+    <a href="#s8"><b>8.</b> Pozicioniranje in sporočilo</a>
+    <a href="#s9"><b>9.</b> Ponudba in akcije</a>
+    <a href="#s10"><b>10.</b> Prodajni lijak</a>
+    <a href="#s11"><b>11.</b> Kreativna strategija (koti)</a>
+    <a href="#s12"><b>12.</b> Mediji in proračun</a>
+    <a href="#s13"><b>13.</b> Merjenje (KPI) in tehnična osnova</a>
+    <a href="#s14"><b>14.</b> Časovnica in prvi koraki</a>
+    <a href="#s15"><b>15.</b> Projekcija rezultatov</a>
+  </div>
+
+  <span class="parttag">Del 1 · Analiza in priložnosti</span>
+
+  <h2 id="s1"><span class="no">1</span>Povzetek in ključna priložnost</h2>
+  <p class="lead">Vesela Sovica je mlada spletna trgovina (živa od februarja 2026) s <b>kakovostnimi, praktičnimi izdelki za spanec in nego dojenčkov</b>, izdelanimi v EU iz 100 % bombaža. Prepoznavni junak ponudbe so <b>spalne vreče z nogicami</b>. Temelji so zdravi: lepi izdelki, zvest osebni pristop, <b>marža okoli 100 %</b> in brezplačna dostava nad 50 €. Oglaševanja še ni bilo, zato je to dokument <b>za zagon</b>: kje so priložnosti in kako začeti pametno.</p>
+  <div class="callout win"><div class="t">Največja priložnost</div>Izdelki in marža so odlični, manjka pa <b>zaupanje in sistem, ki obisk spremeni v nakup</b>: na strani ni vidnih mnenj/ocen, ni zajema e-pošte, ni pixla za merjenje in ni retargeting oglasov. Lara sama pravi, da je glavna ovira strank <b>nepoznavanje izdelka in posledično nezaupanje</b>. Ravno to je naša prva bitka: <b>zgraditi zaupanje (mnenja, videi, osebna nota) in postaviti lijak, ki topel promet pripelje do nakupa</b>. Ker je marža ~100 %, je oglaševanje lahko dobičkonosno že pri zmernem ROAS.</div>
+  <p><b>Strateška teza za prve 3 mesece:</b> najprej postavimo <b>tehnično osnovo in zaupanje</b> (pixel, katalog, mnenja, zajem e-pošte), nato zaženemo <b>en junak izdelek (spalne vreče z nogicami) v hladno občinstvo + retargeting</b>, ob tem pa z <b>bundle ponudbami dvignemo AOV čez prag brezplačne dostave (50 €)</b>. Fokus na SLO, HR v drugo fazo.</p>
+
+  <h2 id="s2"><span class="no">2</span>Podjetje in digitalna prisotnost</h2>
+  <table>
+    <tr><th>Kanal</th><th>Stanje</th><th>Opomba</th></tr>
+    <tr><td>Spletna trgovina</td><td>veselasovica.si + veselasovica.hr</td><td>Živa od februarja 2026. Jasne cene, košarica, brezplačna dostava nad 50 €.</td></tr>
+    <tr><td>Facebook</td><td>/veselasovicasi + /veselasovicahr</td><td>Glavni kanal nagovarjanja. Po Larinih besedah premalo objav, videov in osebne note.</td></tr>
+    <tr><td>Instagram</td><td>/veselasovicasi + /veselasovicahr</td><td>Aktiven, a enako: manjka vsebine iz »prve roke«.</td></tr>
+    <tr><td>Google Ads</td><td>označen kot kanal</td><td>Potencial za Shopping/Performance Max v kasnejši fazi (topli iskalni promet).</td></tr>
+    <tr><td>E-pošta</td><td>NE uporablja</td><td>Velika neizkoriščena priložnost (nurture + ponovni nakup).</td></tr>
+  </table>
+  <p><b>Trga:</b> SLO deluje, <b>HR skoraj ne</b> (»premalo marketinško aktivna«). Priporočilo: v prvi fazi vse moči v SLO, HR aktiviramo, ko lijak deluje.</p>
+
+  <h2 id="s3"><span class="no">3</span>Produkti, cene in ponudba</h2>
+  <p>Portfelj je premišljen in pokriva realne potrebe staršev. Kategorije: <b>Spanje, Nega, Hranjenje, Sobica, Mamice, Poganjalci, Vozički, Oblačila, Darila</b> + sezonsko (Poletje, Back to school).</p>
+  <table>
+    <tr><th>Izdelek</th><th>Cena (pribl.)</th><th>Vloga v strategiji</th></tr>
+    <tr><td><b>Spalne vreče z nogicami</b></td><td>~37,80 €</td><td>JUNAK. Najbolj prepoznavno, unikatno, vodilni oglasni izdelek.</td></tr>
+    <tr><td>Posteljne obrobe</td><td>~27,60 €</td><td>Drugi najbolje prodajani. Odličen za bundle in retargeting.</td></tr>
+    <tr><td>Otroška posteljnina</td><td>17,90–19,50 €</td><td>Širitev programa, lep add-on za dvig AOV.</td></tr>
+    <tr><td>Tetra pleničke (set 10)</td><td>21,90 € (15 % → 18,62 €)</td><td>Poceni vstopni izdelek in odlično »darilo ob nakupu«.</td></tr>
+    <tr><td>Napenjalne rjuhe</td><td>10,50–11,30 €</td><td>Add-on za bundle do praga 50 €.</td></tr>
+  </table>
+  <div class="pill-row">
+    <div class="pill">Povpr. naročilo (AOV)<b>~40 €</b></div>
+    <div class="pill">Marža<b>~100 %</b></div>
+    <div class="pill">Brezpl. dostava nad<b>50 €</b></div>
+    <div class="pill">Trg fokus<b>SLO</b></div>
+  </div>
+  <div class="callout win"><div class="t">Zakaj je ~100 % marža zlata</div>Pri 100 % marži je vsak evro prometa ~0,50 € kritja. To pomeni, da je oglaševanje dobičkonosno že pri <b>ROAS okoli 2,0</b> (prag), realen cilj 3–4+ pa je zelo profitabilen. Ta marža nam da prostor za popuste, darila in agresivnejši zagon, ki si ga marsikatera trgovina ne more privoščiti.</div>
+
+  <h2 id="s4"><span class="no">4</span>Konkurenca in pozicioniranje</h2>
+  <p>Glavni tekmeci: <b>Baby Center, Mali zakladi, Hajdi.si</b> in druge otroške trgovine. Mali zakladi in Hajdi.si imata bolj »premium« videz, višje cene in daljšo dostavo. Vesela Sovica je <b>med specializirano butično trgovino in dostopnim družinskim brandom</b>.</p>
+  <div class="callout"><div class="t">Kje zmagamo</div>Ne tekmujemo po širini kataloga (tam veliki zmagajo), ampak po <b>junak izdelku (spalne vreče z nogicami), lepih vzorcih, osebnem pristopu in hitri dostavi</b>. Naša niša: »butični izbor lepih, praktičnih izdelkov za spanec, po pošteni ceni, z osebno noto in hitro dostavo«.</p></div>
+
+  <h2 id="s5"><span class="no">5</span>Ciljna publika</h2>
+  <table>
+    <tr><th>Segment</th><th>Kdo</th><th>Kako nagovarjamo</th></tr>
+    <tr><td><b>Primarno</b></td><td>Mamice 25–40, povprečen življenjski slog, nosečnice in mame dojenčkov/malčkov</td><td>FB + IG, topel »mamica mamici« ton, vizualno lepi izdelki + zaupanje.</td></tr>
+    <tr><td>Sekundarno</td><td>Iskalke daril (babice, tete, prijateljice ob rojstvu)</td><td>»Darilo za novorojenčka«, darilni seti, sezonsko (Božič, rojstni dnevi).</td></tr>
+    <tr><td>Topla publika</td><td>Obiskovalci strani, sledilci FB/IG, dodani v košarico</td><td>Retargeting z mnenji, ponudbo in brezplačno dostavo.</td></tr>
+  </table>
+  <p><b>Glavna boleča točka (Larine besede):</b> nepoznavanje izdelka → nezaupanje. <b>Motivacije:</b> udoben, varen spanec otroka; lepi, praktični izdelki; zaupanja vreden ponudnik; hitra dostava. Segmenti zaenkrat niso definirani — to postavimo skozi kampanje in podatke.</p>
+
+  <h2 id="s6"><span class="no">6</span>Analiza ponudbe in spletne strani</h2>
+  <p>Ponudba je dobra, a nekaj ključnih vzvodov manjka. To so hkrati naše največje priložnosti za hitre premike:</p>
+  <div class="two">
+    <div class="swot neg"><h3>Kar zavira nakup</h3><ul>
+      <li><b>Ni vidnih mnenj/ocen</b> strank (social proof) — ravno to gradi zaupanje, ki ga kupcem manjka.</li>
+      <li><b>Ni zajema e-pošte</b> (ni popupa/newsletterja) — obiskovalci odidejo brez sledi.</li>
+      <li><b>Ni (verjetno) pixla</b> → nakupov ne moremo meriti ne optimizirati.</li>
+      <li>Logotip se na strani ne naloži pravilno — drobna, a vidna vrzel v zaupanju.</li>
+      <li><b>Padec naročil petek–nedelja</b> (skoraj nič) — nenagovorjen vikend.</li>
+    </ul></div>
+    <div class="swot pos"><h3>Kar že dela za nas</h3><ul>
+      <li>Junak izdelek z jasno prepoznavnostjo (spalne vreče z nogicami).</li>
+      <li>Brezplačna dostava nad 50 € (vzvod za dvig AOV s trenutnih 40 €).</li>
+      <li>~100 % marža (prostor za popuste in agresiven zagon).</li>
+      <li>Lepi vzorci in praktičnost — močan vizualni material za oglase.</li>
+      <li>Osebni pristop in hitra dostava — odlična zgodba za zaupanje.</li>
+    </ul></div>
+  </div>
+  <div class="callout"><div class="t">Ključni vzvod AOV</div>Povprečno naročilo je <b>40 €</b>, brezplačna dostava pa velja <b>nad 50 €</b>. Že majhen premik (bundle, »dodaj še tetra pleničke«, količinski popust) dvigne AOV čez 50 € — kar dvigne prihodek na naročilo <b>in</b> zadovoljstvo (brezplačna dostava). To je najhitrejši dobiček brez dodatnega prometa.</div>
+
+  <h2 id="s7"><span class="no">7</span>Prednosti in slabosti (povzetek)</h2>
+  <div class="two">
+    <div class="swot pos"><h3>Prednosti</h3><ul>
+      <li>Kakovostni EU izdelki, 100 % bombaž, lepi vzorci.</li>
+      <li>Prepoznaven junak izdelek + ~100 % marža.</li>
+      <li>Osebni, zaupanja vreden pristop; hitra dostava.</li>
+      <li>Čista spletna trgovina z jasnimi cenami in košarico.</li>
+    </ul></div>
+    <div class="swot neg"><h3>Izzivi</h3><ul>
+      <li>Nizka prepoznavnost (mlada znamka) in nizek % vračajočih kupcev.</li>
+      <li>Ni merjenja (pixel), zajema e-pošte, retargetinga, mnenj.</li>
+      <li>Malo lastne vsebine (videi, izkušnje iz prve roke).</li>
+      <li>HR trg neaktiven; vikend padec prodaje.</li>
+      <li>Skromen budget (0–500 €/mes) → nujna disciplina in fokus.</li>
+    </ul></div>
+  </div>
+
+  <span class="parttag">Del 2 · Master strategija in zasnova kampanje</span>
+
+  <h2 id="s8"><span class="no">8</span>Pozicioniranje in ključno sporočilo</h2>
+  <p><b>Pozicija:</b> »Butični izbor lepih in praktičnih izdelkov za miren spanec malčka — po pošteni ceni, iz 100 % bombaža, z osebno noto in hitro dostavo.«</p>
+  <p><b>Trije stebri sporočila:</b></p>
+  <ul>
+    <li><b>Zaupanje</b> (mnenja mamic, izkušnje iz prve roke, EU kakovost) — rešuje glavno oviro: nezaupanje.</li>
+    <li><b>Junak izdelek</b> (spalne vreče z nogicami: udobje + svoboda gibanja + lepi vzorci).</li>
+    <li><b>Praktičnost in bližina</b> (mamica mamici, hiter odziv, hitra dostava).</li>
+  </ul>
+  <div class="callout win"><div class="t">Ton (kot je želela Lara)</div>Topel, oseben, »mamica mamici«. Prava vrednost je v <b>vsebini iz prve roke</b>: kratki videi razpakiranja, kako se vreča obleče, resnične izkušnje. To je točno tisto, kar je Lara označila kot manjkajoče — in kar najbolj gradi zaupanje.</div>
+
+  <h2 id="s9"><span class="no">9</span>Ponudba in akcije (prvi 3 meseci)</h2>
+  <p>Lara je predlagala tri akcije — vse tri so dobre in jih vgradimo z jasnim namenom (dvig AOV + prvi nakup + zvestoba):</p>
+  <div class="offer">
+    <div class="tag">Vodilna akcija · dvig AOV čez prag dostave</div>
+    <h3>Paketni popust: sestavi svoj set za miren spanec</h3>
+    <p>Spalna vreča + posteljna obroba (+ rjuha) v paketu z manjšim popustom, tako da naročilo preseže 50 € = brezplačna dostava. Direktno dviguje povprečno naročilo z 40 € čez 50 €.</p>
+  </div>
+  <ul>
+    <li><b>Koda kupona</b> (npr. za prve kupce ali iz retargetinga) — vzvod za prvi nakup pri hladni/topli publiki.</li>
+    <li><b>Darilo ob nakupu</b> (manjše vrednosti, npr. tetra plenička) nad določenim zneskom — dvig AOV in prijeten »wow« ob prvem nakupu.</li>
+    <li><b>VIP / vračajoči kupci</b> (Lara že prilaga 10 % kartico) — nadgradimo v e-mail zaporedje, da se % vračanja dvigne.</li>
+  </ul>
+
+  <h2 id="s10"><span class="no">10</span>Prodajni lijak</h2>
+  <div class="funnel">
+    <div class="fstage"><div class="fl">TOFU · Spoznaj</div><p>Hladno občinstvo mamic v SLO. Video in slikovni oglasi junak izdelka (spalne vreče z nogicami) + lepi vzorci. Cilj: obisk strani, ogled izdelka, prvi »všeček« znamke.</p></div>
+    <div class="fstage"><div class="fl">MOFU · Zaupaj</div><p>Retargeting (1–2 €/dan) na obiskovalce, gledalce videov in sledilce: mnenja mamic, izkušnje iz prve roke, »zakaj 100 % bombaž«, EU kakovost. Zajem e-pošte (popup s popustom).</p></div>
+    <div class="fstage"><div class="fl">BOFU · Nakup</div><p>Retargeting na »dodano v košarico« in obiskovalce izdelka: ponudba (paket, koda, brezplačna dostava nad 50 €), nujnost (zaloga/rok). Tu se sklene nakup.</p></div>
+    <div class="fstage"><div class="fl">Zvestoba</div><p>E-mail zaporedje po nakupu (nasveti za spanec, nega bombaža), 10 % kartica → ponovni nakup, prošnja za mnenje/oceno (napaja social proof za TOFU/MOFU).</p></div>
+  </div>
+  <p>Danes obstaja le vrh (organski FB/IG) brez sredine in dna — zato se obisk ne pretvarja. Retargeting + zajem e-pošte + mnenja so manjkajoči členi.</p>
+
+  <h2 id="s11"><span class="no">11</span>Kreativna strategija (koti za testiranje)</h2>
+  <p>Pet kotov testiramo vzporedno; vsak isto znamko pove z drugega zornega kota, da najdemo, kaj pri mamicah najbolje prime.</p>
+  <div class="kot"><b>A · Junak izdelek (spalne vreče z nogicami)</b><div class="ex">»Vreča, ki greje, a pusti nogicam svobodo. 100 % bombaž, lepi vzorci, miren spanec za malčka in zate.«</div></div>
+  <div class="kot"><b>B · Zaupanje in izkušnja iz prve roke</b> (mnenja, razpakiranje)<div class="ex">»Poglej, kako mehka je v živo« — kratek video razpakiranja + iskren komentar mamice. Social proof kot glavni junak.</div></div>
+  <div class="kot"><b>C · Praktičnost mamica mamici</b><div class="ex">»Tri stvari, ki sem si jih kot mamica najbolj želela za lažje noči.« Topla, osebna zgodba, ne prodajni ton.</div></div>
+  <div class="kot"><b>D · Ponudba + brezplačna dostava</b> (retargeting/BOFU)<div class="ex">»Sestavi svoj set za miren spanec in dostavo dobiš brezplačno. Lepi vzorci, hitra dostava.«</div></div>
+  <div class="kot"><b>E · Darilo za novorojenčka</b> (sekundarni segment, sezonsko)<div class="ex">»Iščeš darilo, ki bo res v uporabi? Set za spanec, ki ga vsaka mamica objame.«</div></div>
+  <p><b>Format:</b> primarno <b>vertikalni video / reel (9:16)</b> in carousel lepih vzorcev. <b>Ton:</b> topel, oseben, mamica mamici; konkretno, brez oglaševalskega patosa. <b>Vsebina iz prve roke je prioriteta</b> (Larin ključni manko).</p>
+
+  <h2 id="s12"><span class="no">12</span>Mediji in proračun</h2>
+  <p>Budget je 0–500 €/mes. Za smiseln zagon predlagam <b>~350–400 €/mes</b> (prilagodljivo). Ključno pravilo pri malem budgetu: <b>fokus na en junak izdelek + en trg (SLO) + malo ad setov</b>, da se algoritem hitro nauči.</p>
+  <table>
+    <tr><th>Namen</th><th>Format</th><th>Predlog / mesec</th><th>Delež</th></tr>
+    <tr><td>TOFU (hladno, junak izdelek)</td><td>Video + carousel → obisk/ogled izdelka</td><td>~210 € (7 €/dan)</td><td>~60 %</td></tr>
+    <tr><td>Retargeting (MOFU + BOFU)</td><td>Mnenja + ponudba + košarica</td><td>~90 € (3 €/dan)</td><td>~25 %</td></tr>
+    <tr><td>Test novega kota / vzorca</td><td>Nov video / darilni set</td><td>~50 €</td><td>~15 %</td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tfoot><tr><td>Skupaj (predlog)</td><td>zagon, fokus SLO</td><td>~350 €/mes</td><td>100 %</td></tr></tfoot>
+  </table>
+  <p style="font-size:12.5px;color:var(--muted);">Retargeting steče šele, ko TOFU zbere dovolj obiskovalcev (prvih ~1–2 tedna). Denar sproti kotu z najnižjo ceno nakupa; rotacija vsebin, da frekvenca ne pobije odziva. Google Shopping/PMax je smiseln naslednji korak, ko Meta lijak deluje.</p>
+
+  <h2 id="s13"><span class="no">13</span>Merjenje (KPI) in tehnična osnova</h2>
+  <p><b>Najprej tehnična osnova — brez tega letimo na slepo:</b></p>
+  <ul>
+    <li><b>Meta pixel + Conversions API</b> na veselasovica.si: dogodki ViewContent, AddToCart, InitiateCheckout, <b>Purchase z vrednostjo</b>. Brez tega ni ROAS in ni optimizacije za nakup.</li>
+    <li><b>Katalog izdelkov</b> (za dinamični retargeting in kasneje Shopping).</li>
+    <li><b>Zajem e-pošte</b> (popup s popustom) — gradnja lastne liste.</li>
+    <li><b>Mnenja/ocene</b> na strani in v oglasih (social proof).</li>
+  </ul>
+  <p><b>KPI, ki jih spremljamo:</b></p>
+  <ul>
+    <li><b>Cena na nakup (CPP)</b> in <b>ROAS</b> (glavni cilj, ker merimo vrednost).</li>
+    <li><b>AOV</b> (cilj: dvig s 40 € čez 50 €) in delež naročil z brezplačno dostavo.</li>
+    <li><b>CTR in frekvenca</b> po kotu (zdravje kreative).</li>
+    <li><b>Delež vračajočih kupcev</b> (učinek e-maila in 10 % kartice).</li>
+  </ul>
+
+  <h2 id="s14"><span class="no">14</span>Časovnica in prvi koraki</h2>
+  <div class="step"><div class="n">1</div><div class="c"><b>Teden 1 · Tehnična osnova</b><p>Namestimo pixel + CAPI (Purchase z vrednostjo), katalog, popup za e-pošto. Zberemo prvi paket vsebine iz prve roke (videi razpakiranja, izjava mamice) in 3–5 mnenj.</p></div></div>
+  <div class="step"><div class="n">2</div><div class="c"><b>Teden 2 · Zagon TOFU</b><p>Zaženemo hladno kampanjo z junak izdelkom (koti A, B, C), fokus SLO, ~7 €/dan. Pripravimo bundle ponudbo (paket za miren spanec).</p></div></div>
+  <div class="step"><div class="n">3</div><div class="c"><b>Teden 3–4 · Retargeting + ponudba</b><p>Vklopimo retargeting (mnenja + ponudba + brezplačna dostava), koda kupona, darilo ob nakupu. Prva primerjava kotov: kaj prinaša najcenejši nakup.</p></div></div>
+  <div class="step"><div class="n">4</div><div class="c"><b>Mesec 2 · Optimizacija in dvig AOV</b><p>Preusmerimo budget v zmagovalne kote, skaliramo bundle, testiramo vikend akcije (padec pet–ned), zaženemo e-mail zaporedje za nurture in ponovni nakup.</p></div></div>
+  <div class="step"><div class="n">5</div><div class="c"><b>Mesec 3 · Širitev</b><p>Ob delujočem lijaku razmislimo o Google Shopping/PMax, širitvi izdelkov (hranjenje, poletje) in aktivaciji HR trga.</p></div></div>
+
+  <h2 id="s15"><span class="no">15</span>Projekcija rezultatov (okvirna)</h2>
+  <p>Izračun temelji na tvojih podatkih (AOV 40 €, marža ~100 %) in panožnih okvirih. Mesec 1 je zagon in učenje (nižji ROAS), nato se izboljša z retargetingom in mnenji.</p>
+  <table>
+    <tr><th>Obdobje</th><th>Poraba</th><th>Ocenj. ROAS</th><th>Ocenj. promet</th><th>Ocenj. kritje (~100 % marža, minus oglasi)</th></tr>
+    <tr><td>Mesec 1 (zagon + učenje)</td><td>~350 €</td><td>~1,5–2,0×</td><td>~525–700 €</td><td>~-90 do 0 € (vlaganje v učenje in podatke)</td></tr>
+    <tr><td>Mesec 2 (retargeting deluje)</td><td>~400 €</td><td>~2,5–3,5×</td><td>~1.000–1.400 €</td><td>~+100 do +300 €</td></tr>
+    <tr><td>Mesec 3 (lijak + AOV dvig)</td><td>~450 €</td><td>~3,5–4,5×</td><td>~1.575–2.025 €</td><td>~+340 do +560 €</td></tr>
+  </table>
+  <p style="font-size:12.5px;color:var(--muted);">Okvirna projekcija, ne obljuba. Ključni pogoji: nameščen pixel (merjenje), vsebina, ki gradi zaupanje (mnenja + prva roka), in dvig AOV čez 50 €. Ker je marža ~100 %, je vsak ROAS nad ~2,0 že dobičkonosen — kar daje udoben manevrski prostor za zagon.</p>
+
+  <div class="callout win"><div class="t">Naslednji korak</div>Predlagam, da najprej uredimo <b>pixel + zajem e-pošte + prvih 5 mnenj</b>, vzporedno pa posnamemo <b>prvi paket vsebine iz prve roke</b> (razpakiranje, oblačenje vreče, izjava mamice). Ko to imamo, zaženemo TOFU s spalnimi vrečami z nogicami. Reci in pripravim konkreten prvi paket oglasov (koti A, B, C) v tem toplem »mamica mamici« glasu.</p></div>
+
+  <div class="foot">
+    <span>Undercover Marketing Media · undercover-marketing.com</span>
+    <span>Vesela Sovica · analiza in strategija pred zagonom · 12. avg. 2026</span>
+  </div>
+</div>
