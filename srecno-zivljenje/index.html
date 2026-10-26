@@ -264,9 +264,6 @@
  <div class="growth-banner"><div class="growth-card"><div class="gc-label">Cena na ogled strani</div><div class="gc-value">0,03 €</div><div class="gc-sub">1.035 ogledov strani knjige za 31,15 €</div></div><div class="growth-card"><div class="gc-label">CTR oglasov</div><div class="gc-value">10,53 %</div><div class="gc-sub">panožno povprečje ~1 do 2 %</div></div><div class="growth-card"><div class="gc-label">Dni brez oglasov</div><div class="gc-value">18</div><div class="gc-sub">od 8. 10. oglasi ne tečejo</div></div></div>
  <div class="info-strip"><span>ℹ️</span><div><strong>O podatkih:</strong> številke so iz Meta Ads Managerja za 1.–25. 10. 2026 (zadnji polni dan). Ker so oglasi tekli samo 1.–7. 10., jih primerjamo z enako dolgim obdobjem pred tem (24.–30. 9.). Nakupov knjige Meta ne meri (v pikslu ni dogodka Nakup), zato poročamo o ogledih strani knjige. Na strani so bili oddani tudi 2 kontaktna obrazca.</div></div>
 
- <div class="chart-row" style="margin-top:18px;grid-template-columns:1fr;">
-  <div class="chart-card"><div class="ttl">Ogledi strani knjige in poraba na dan · 25. 9.–25. 10.</div><div class="legend"><span class="legend-item"><span class="legend-dot" style="background:var(--chart-pink)"></span>Ogledi strani</span><span class="legend-item"><span class="legend-dot" style="background:var(--chart-green)"></span>Poraba (€)</span></div><svg id="ch1"></svg></div>
- </div>
 
  <div class="divider-bar" style="margin-top:24px;border-radius:12px 12px 0 0;">Oglasi v oktobru</div>
  <div class="table-card"><div class="table-inner"><div class="table-wrap"><table style="font-family:'Calibri Light',Calibri,'Segoe UI',sans-serif;font-size:13px;color:#2A2521;min-width:820px;width:100%;">
@@ -436,5 +433,4 @@ dualChart('chart-spend',  porabaPoDnevih, prikaziPoDnevih, pink, green, days, 'P
 function ph(){try{var w=document.querySelector('.wrap');parent.postMessage({ummH:Math.ceil(w.offsetTop+w.offsetHeight+40)},'*');}catch(e){}}
 window.addEventListener('load',ph);window.addEventListener('resize',ph);setTimeout(ph,1500);
 window.switchTab=function(n){['ads','social'].forEach(function(t){document.getElementById('tab-'+t).style.display=(t===n)?'':'none';document.getElementById('tabbtn-'+t).classList.toggle('active',t===n);});ph();};
-dualChart('ch1',[140,330,376,180,145,119,165,105,169,198,164,207,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[3.88,8.02,8.61,4.54,3.89,3.84,5.17,4.01,4.9,6.29,4.44,5.47,0.87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],cv('--chart-pink'),cv('--chart-green'),["25. 9.","26. 9.","27. 9.","28. 9.","29. 9.","30. 9.","1. 10.","2. 10.","3. 10.","4. 10.","5. 10.","6. 10.","7. 10.","8. 10.","9. 10.","10. 10.","11. 10.","12. 10.","13. 10.","14. 10.","15. 10.","16. 10.","17. 10.","18. 10.","19. 10.","20. 10.","21. 10.","22. 10.","23. 10.","24. 10.","25. 10."],'Ogledi strani','Poraba €',false);
 })();</script>
