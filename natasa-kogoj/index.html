@@ -443,7 +443,9 @@ dualChart('chart-clicks', klikiPoDnevih, dosegPoDnevih, pink, green, days, 'Klik
 dualChart('chart-spend',  porabaPoDnevih, prikaziPoDnevih, pink, green, days, 'Poraba', 'Prikazi', true);
 */
 
-window.switchTab=function(n){['ads','posts','social'].forEach(function(t){document.getElementById('tab-'+t).style.display=(t===n)?'':'none';document.getElementById('tabbtn-'+t).classList.toggle('active',t===n);});};
+function ph(){try{var w=document.querySelector('.wrap');parent.postMessage({ummH:Math.ceil(w.offsetTop+w.offsetHeight+40)},'*');}catch(e){}}
+window.addEventListener('load',ph);window.addEventListener('resize',ph);setTimeout(ph,1500);
+window.switchTab=function(n){['ads','posts','social'].forEach(function(t){document.getElementById('tab-'+t).style.display=(t===n)?'':'none';document.getElementById('tabbtn-'+t).classList.toggle('active',t===n);});ph();};
 var L=["19. 10.","20. 10.","21. 10.","22. 10.","23. 10.","24. 10.","25. 10."];
 dualChart('ch1',[0,0,0,84,271,218,361],[37,13,15,30,23,22,16],cv('--chart-pink'),cv('--chart-green'),L,'Dogodek','Knjiga',false);
 dualChart('ch2',[4,3,1,3,4,2,5],[37,13,15,30,23,22,16],cv('--chart-pink'),cv('--chart-green'),L,'Začeti nakupi','Ogledi strani',false);
